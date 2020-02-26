@@ -11,7 +11,7 @@
         android:id="@+id/questionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="24dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,7 +23,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,9 +31,9 @@
 
         <Button
             android:id="@+id/trueButton"
-            android:onClick="onButtonClick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onButtonClick"
             android:text="Button"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
@@ -44,9 +44,9 @@
 
         <Button
             android:id="@+id/falseButton"
-            android:onClick="onButtonClick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onButtonClick"
             android:text="Button"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
     </LinearLayout>
@@ -55,7 +55,7 @@
         android:id="@+id/replyText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,11 +64,10 @@
         tools:text="Reply" />
 
 
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,9 +75,9 @@
 
         <Button
             android:id="@+id/nextButton"
-            android:onClick="onButtonClick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onButtonClick"
             android:text="Button"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             tools:text="Next" />
@@ -90,12 +89,12 @@
 
         <Button
             android:id="@+id/cheatButton"
-            android:visibility="visible"
-            android:onClick="onButtonClick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onButtonClick"
             android:text="Button"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:visibility="visible"
             tools:text="Cheat" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
