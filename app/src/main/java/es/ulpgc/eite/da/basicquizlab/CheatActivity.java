@@ -36,7 +36,6 @@ public class CheatActivity extends AppCompatActivity {
     initLayoutContent();
   }
 
-
   private void initLayoutData() {
     answer = getIntent().getExtras().getInt(EXTRA_ANSWER);
   }
@@ -69,6 +68,12 @@ public class CheatActivity extends AppCompatActivity {
 
   }
 
+  @Override
+  public void onBackPressed() {
+    Log.d(TAG, "onBackPressed()");
+
+    returnCheatedStatus();
+  }
 
   public void onButtonClick(View view) {
 
@@ -93,15 +98,9 @@ public class CheatActivity extends AppCompatActivity {
     }
   }
 
-  @Override
-  public void onBackPressed() {
-    Log.d(TAG, "onBackPressed()");
-
-    returnCheatedStatus();
-  }
-
   private void falseButtonClicked() {
     returnCheatedStatus();
   }
+
 
 }

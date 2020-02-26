@@ -13,6 +13,9 @@ public class QuestionActivity extends AppCompatActivity {
 
   public static final String TAG = "Quiz.QuestionActivity";
 
+  public final static String KEY_INDEX = "KEY_INDEX";
+  public final static String KEY_REPLY = "KEY_REPLY";
+  public final static String KEY_ENABLED = "KEY_ENABLED";
   public static final int CHEAT_REQUEST = 1;
 
   private Button falseButton, trueButton,cheatButton, nextButton;
@@ -22,6 +25,7 @@ public class QuestionActivity extends AppCompatActivity {
   private int questionIndex=0;
   private int[] replyArray;
   private boolean nextButtonEnabled;
+  private String currentReply;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +39,27 @@ public class QuestionActivity extends AppCompatActivity {
     linkLayoutComponents();
     initLayoutContent();
 
+    resetReplyContent();
+
+    if(savedInstanceState != null) {
+      questionIndex=savedInstanceState.getInt(KEY_INDEX);
+      currentReply =savedInstanceState.getString(KEY_REPLY);
+      nextButtonEnabled=savedInstanceState.getBoolean(KEY_ENABLED);
+
+    }
+
     updateLayoutData();
 
   }
 
+  @Override
+  protected void onSaveInstanceState(Bundle outState) {
+    super.onSaveInstanceState(outState);
+
+    outState.putInt(KEY_INDEX, questionIndex);
+    outState.putString(KEY_REPLY, replyText.getText().toString());
+    outState.putBoolean(KEY_ENABLED, nextButtonEnabled);
+  }
 
   private void initLayoutData() {
     questionArray=getResources().getStringArray(R.array.question_array);
@@ -61,13 +82,15 @@ public class QuestionActivity extends AppCompatActivity {
     trueButton.setText(R.string.true_button_text);
     nextButton.setText(R.string.next_button_text);
     cheatButton.setText(R.string.cheat_button_text);
+  }
 
-
+  private void resetReplyContent() {
+    currentReply = getString(R.string.empty_text);
   }
 
   private void updateLayoutData() {
     questionText.setText(questionArray[questionIndex]);
-    replyText.setText(R.string.empty_text);
+    replyText.setText(currentReply);
   }
 
   public void onButtonClick(View view) {
@@ -169,6 +192,7 @@ public class QuestionActivity extends AppCompatActivity {
     checkIndexData();
 
     if(questionIndex < questionArray.length) {
+      resetReplyContent();
       updateLayoutData();
     }
 

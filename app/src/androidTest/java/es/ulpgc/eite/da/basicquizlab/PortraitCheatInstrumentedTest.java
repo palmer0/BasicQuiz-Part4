@@ -22,7 +22,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class CheatInstrumentedTest {
+public class PortraitCheatInstrumentedTest {
 
   @Rule
   public ActivityTestRule<QuestionActivity> mActivityTestRule =
