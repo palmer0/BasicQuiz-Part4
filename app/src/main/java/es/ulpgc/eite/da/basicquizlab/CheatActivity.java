@@ -20,7 +20,7 @@ public class CheatActivity extends AppCompatActivity {
   private Button noButton, yesButton;
   private TextView warningText, answerText;
 
-  private int answer;
+  private int currentAnswer;
   private boolean answerCheated;
 
   @Override
@@ -37,7 +37,7 @@ public class CheatActivity extends AppCompatActivity {
   }
 
   private void initLayoutData() {
-    answer = getIntent().getExtras().getInt(EXTRA_ANSWER);
+    currentAnswer = getIntent().getExtras().getInt(EXTRA_ANSWER);
   }
 
   private void linkLayoutComponents() {
@@ -90,7 +90,7 @@ public class CheatActivity extends AppCompatActivity {
   private void trueButtonClicked() {
     answerCheated = true;
 
-    if(answer == 0) {
+    if(currentAnswer == 0) {
       answerText.setText(R.string.false_text);
     } else {
       answerText.setText(R.string.true_text);
