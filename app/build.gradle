@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     buildToolsVersion "29.0.0"
     defaultConfig {
-        applicationId "es.ulpgc.eite.da.basicquizlab2"
+        applicationId "es.ulpgc.eite.da.basicquizlab"
         minSdkVersion 22
         targetSdkVersion 28
         versionCode 1
