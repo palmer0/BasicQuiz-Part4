@@ -48,7 +48,7 @@ public class QuestionActivity extends AppCompatActivity {
 
     }
 
-    updateLayoutData();
+    updateLayoutContent();
 
   }
 
@@ -88,7 +88,7 @@ public class QuestionActivity extends AppCompatActivity {
     currentReply = getString(R.string.empty_text);
   }
 
-  private void updateLayoutData() {
+  private void updateLayoutContent() {
     questionText.setText(questionArray[questionIndex]);
     replyText.setText(currentReply);
   }
@@ -193,7 +193,7 @@ public class QuestionActivity extends AppCompatActivity {
 
     if(questionIndex < questionArray.length) {
       resetReplyContent();
-      updateLayoutData();
+      updateLayoutContent();
     }
 
   }
