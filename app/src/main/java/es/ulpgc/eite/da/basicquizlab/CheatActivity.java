@@ -79,15 +79,15 @@ public class CheatActivity extends AppCompatActivity {
 
     switch (view.getId()) {
       case R.id.noButton:
-        falseButtonClicked();
+        noButtonClicked();
         break;
       case R.id.yesButton:
-        trueButtonClicked();
+        yesButtonClicked();
     }
 
   }
 
-  private void trueButtonClicked() {
+  private void yesButtonClicked() {
     answerCheated = true;
 
     if(currentAnswer == 0) {
@@ -98,7 +98,7 @@ public class CheatActivity extends AppCompatActivity {
     }
   }
 
-  private void falseButtonClicked() {
+  private void noButtonClicked() {
     returnCheatedStatus();
   }
 
