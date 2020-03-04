@@ -27,7 +27,7 @@ public class LandscapeQuestionTest {
       new ActivityTestRule<>(QuestionActivity.class);
 
   @Test
-  public void landscapeQuestionInstrumentedTest() {
+  public void landscapeQuestionTest() {
 
     // GIVEN
 
