@@ -57,7 +57,7 @@ public class QuestionActivity extends AppCompatActivity {
     super.onSaveInstanceState(outState);
 
     outState.putInt(KEY_INDEX, questionIndex);
-    outState.putString(KEY_REPLY, replyText.getText().toString());
+    outState.putString(KEY_REPLY, currentReply);
     outState.putBoolean(KEY_ENABLED, nextButtonEnabled);
   }
 
