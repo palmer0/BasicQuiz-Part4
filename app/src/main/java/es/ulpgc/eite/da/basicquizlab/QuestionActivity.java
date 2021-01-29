@@ -66,7 +66,6 @@ public class QuestionActivity extends AppCompatActivity {
     replyArray=getResources().getIntArray(R.array.reply_array);
   }
 
-
   private void linkLayoutComponents() {
     falseButton = findViewById(R.id.falseButton);
     trueButton = findViewById(R.id.trueButton);
@@ -106,7 +105,6 @@ public class QuestionActivity extends AppCompatActivity {
       case R.id.cheatButton:
         cheatButtonClicked();
     }
-
   }
 
   private void buttonClicked(int id) {
@@ -135,8 +133,6 @@ public class QuestionActivity extends AppCompatActivity {
     } else {
       currentReply=getString(R.string.incorrect_text);
     }
-
-
   }
 
   private void falseButtonClicked() {
@@ -212,5 +208,4 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
   }
-
 }
