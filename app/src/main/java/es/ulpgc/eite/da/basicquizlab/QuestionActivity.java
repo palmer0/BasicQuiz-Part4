@@ -34,6 +34,8 @@ public class QuestionActivity extends AppCompatActivity {
 
     getSupportActionBar().setTitle(R.string.question_title);
 
+    Log.d(TAG, "onCreate()");
+
     initLayoutData();
 
     linkLayoutComponents();
@@ -53,8 +55,28 @@ public class QuestionActivity extends AppCompatActivity {
   }
 
   @Override
+  protected void onResume() {
+    super.onResume();
+    Log.d(TAG, "onResume()");
+  }
+
+  @Override
+  protected void onPause() {
+    super.onPause();
+    Log.d(TAG, "onPause()");
+  }
+
+  @Override
+  protected void onDestroy() {
+    super.onDestroy();
+    Log.d(TAG, "onDestroy()");
+  }
+
+  @Override
   protected void onSaveInstanceState(Bundle outState) {
     super.onSaveInstanceState(outState);
+
+    Log.d(TAG, "onSaveInstanceState()");
 
     outState.putInt(KEY_INDEX, questionIndex);
     outState.putString(KEY_REPLY, currentReply);

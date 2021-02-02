@@ -2,6 +2,7 @@ package es.ulpgc.eite.da.basicquizlab.test;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 
 import androidx.test.rule.ActivityTestRule;
 
@@ -29,6 +30,8 @@ import static org.hamcrest.Matchers.not;
 @SuppressWarnings("ALL")
 public class QuizSteps {
 
+  private static final int DELAY_IN_SECS = 3 * 1000;
+
   @Rule
   public ActivityTestRule<QuestionActivity> questionTestRule =
       new ActivityTestRule(QuestionActivity.class, true, false);
@@ -50,6 +53,17 @@ public class QuizSteps {
   
   @Given("^iniciar pantalla Question$")
   public void iniciarPantallaQuestion() {
+
+//    try {
+//      UiDevice device = UiDevice.getInstance(getInstrumentation());
+//      device.setOrientationNatural();
+//    } catch (RemoteException e) {
+//    }
+
+    try {
+      Thread.sleep(DELAY_IN_SECS);
+    } catch (InterruptedException e) {
+    }
 
   }
 
@@ -82,11 +96,17 @@ public class QuizSteps {
 
   @When("^pulsar boton \"([^\"]*)\"$")
   public void pulsarBoton(String b) {
+
     String tb = activity.getString(R.string.true_button_text);
     //int button = (b.equals("True")) ? R.id.trueButton : R.id.falseButton;
     int button = (b.equals(tb)) ? R.id.trueButton : R.id.falseButton;
     onView(withId(button)).check(matches(isDisplayed()));
     onView(withId(button)).perform(click());
+
+    try {
+      Thread.sleep(DELAY_IN_SECS);
+    } catch (InterruptedException e) {
+    }
   }
 
   @Then("^mostrar resultado \"([^\"]*)\" a respuesta \"([^\"]*)\"$")
@@ -110,13 +130,24 @@ public class QuizSteps {
 
   @When("^pulsar boton Cheat$")
   public void pulsarBotonCheat() {
+
     onView(withId(R.id.cheatButton)).check(matches(isDisplayed()));
     onView(withId(R.id.cheatButton)).perform(click());
+
+    try {
+      Thread.sleep(DELAY_IN_SECS);
+    } catch (InterruptedException e) {
+    }
   }
 
   @Then("^iniciar pantalla Cheat$")
   public void iniciarPantallaCheat() {
     //getInstrumentation().waitForIdleSync();
+
+    try {
+      Thread.sleep(DELAY_IN_SECS);
+    } catch (InterruptedException e) {
+    }
   }
 
   @And("^mostrar mensaje Warning$")
@@ -139,20 +170,39 @@ public class QuizSteps {
 
     onView(withId(R.id.noButton)).check(matches(isDisplayed()));
     onView(withId(R.id.noButton)).perform(click());
+
+    try {
+      Thread.sleep(DELAY_IN_SECS);
+    } catch (InterruptedException e) {
+    }
   }
 
   @Then("^finalizar pantalla Cheat$")
   public void finalizarPantallaCheat() {
+    try {
+      Thread.sleep(DELAY_IN_SECS);
+    } catch (InterruptedException e) {
+    }
   }
 
   @And("^resumir pantalla Question$")
   public void resumirPantallaQuestion() {
+    try {
+      Thread.sleep(DELAY_IN_SECS);
+    } catch (InterruptedException e) {
+    }
   }
 
   @When("^pulsar boton Yes$")
   public void pulsarBotonYes() {
+
     onView(withId(R.id.yesButton)).check(matches(isDisplayed()));
     onView(withId(R.id.yesButton)).perform(click());
+
+    try {
+      Thread.sleep(DELAY_IN_SECS);
+    } catch (InterruptedException e) {
+    }
   }
 
   @Then("^mostrar respuesta \"([^\"]*)\" a pregunta \"([^\"]*)\"$")
@@ -170,14 +220,66 @@ public class QuizSteps {
 
   @When("^pulsar boton Back$")
   public void pulsarBotonBack() {
+    try {
+      Thread.sleep(DELAY_IN_SECS);
+    } catch (InterruptedException e) {
+    }
+
     //getInstrumentation().waitForIdleSync();
     pressBack();
   }
 
   @When("^pulsar boton Next$")
   public void pulsarBotonNext() {
+
     onView(withId(R.id.nextButton)).check(matches(isDisplayed()));
     onView(withId(R.id.nextButton)).perform(click());
+
+    try {
+      Thread.sleep(DELAY_IN_SECS);
+    } catch (InterruptedException e) {
+    }
   }
 
+  @When("^girar pantalla$")
+  public void girarPantalla() {
+
+    int orientation = activity.getRequestedOrientation();
+
+    if(orientation == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
+      orientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+
+    } else {
+      orientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
+    }
+
+    activity.setRequestedOrientation(orientation);
+
+//    try {
+//      UiDevice device = UiDevice.getInstance(getInstrumentation());
+//
+//      if(orientation == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
+//        device.setOrientationNatural();
+//
+//      } else {
+//        device.setOrientationLeft();
+//      }
+//
+//    } catch (RemoteException e) {
+//    }
+
+
+//    try {
+//      UiDevice device = UiDevice.getInstance(getInstrumentation());
+//      device.setOrientationLeft();
+//    } catch (RemoteException e) {
+//    }
+
+    try {
+      Thread.sleep(DELAY_IN_SECS);
+    } catch (InterruptedException e) {
+    }
+
+
+  }
 }
