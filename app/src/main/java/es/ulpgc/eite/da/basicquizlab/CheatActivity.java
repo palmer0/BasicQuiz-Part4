@@ -76,6 +76,8 @@ public class CheatActivity extends AppCompatActivity {
   }
 
   public void onButtonClick(View view) {
+    yesButton.setEnabled(false);
+    noButton.setEnabled(false);
 
     switch (view.getId()) {
       case R.id.noButton:

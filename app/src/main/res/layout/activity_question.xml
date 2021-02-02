@@ -35,8 +35,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Button"
-            android:textColor="@android:color/white"
-            android:backgroundTint="@color/colorPrimary"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <Space
@@ -50,8 +48,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Button"
-            android:textColor="@android:color/white"
-            android:backgroundTint="@color/colorPrimary"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
     </LinearLayout>
 

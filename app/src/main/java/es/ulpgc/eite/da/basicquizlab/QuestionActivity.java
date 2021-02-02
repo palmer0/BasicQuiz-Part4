@@ -90,6 +90,11 @@ public class QuestionActivity extends AppCompatActivity {
   private void updateLayoutContent() {
     questionText.setText(questionArray[questionIndex]);
     replyText.setText(currentReply);
+
+    nextButton.setEnabled(nextButtonEnabled);
+    cheatButton.setEnabled(!nextButtonEnabled);
+    falseButton.setEnabled(!nextButtonEnabled);
+    trueButton.setEnabled(!nextButtonEnabled);
   }
 
   public void onButtonClick(View view) {
@@ -109,10 +114,6 @@ public class QuestionActivity extends AppCompatActivity {
 
   private void buttonClicked(int id) {
 
-    if(nextButtonEnabled) {
-      return;
-    }
-
     switch (id) {
       case R.id.falseButton:
         falseButtonClicked();
@@ -121,9 +122,8 @@ public class QuestionActivity extends AppCompatActivity {
         trueButtonClicked();
     }
 
-    updateLayoutContent();
-
     nextButtonEnabled = true;
+    updateLayoutContent();
   }
 
   private void trueButtonClicked() {
@@ -146,9 +146,6 @@ public class QuestionActivity extends AppCompatActivity {
   }
 
   private void cheatButtonClicked() {
-    if(nextButtonEnabled) {
-      return;
-    }
 
     Intent intent = new Intent(this, CheatActivity.class);
     intent.putExtra(CheatActivity.EXTRA_ANSWER, replyArray[questionIndex]);
@@ -180,10 +177,6 @@ public class QuestionActivity extends AppCompatActivity {
 
   private void nextButtonClicked() {
     Log.d(TAG, "nextButtonClicked()");
-
-    if(!nextButtonEnabled) {
-      return;
-    }
 
     nextButtonEnabled = false;
     questionIndex++;
