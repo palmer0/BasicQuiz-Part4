@@ -3,8 +3,10 @@ package es.ulpgc.eite.da.basicquizlab.test;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.os.RemoteException;
 
 import androidx.test.rule.ActivityTestRule;
+import androidx.test.uiautomator.UiDevice;
 
 import org.junit.Rule;
 
@@ -25,12 +27,13 @@ import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.isEnabled;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 import static org.hamcrest.Matchers.not;
 
 @SuppressWarnings("ALL")
 public class QuizSteps {
 
-  private static final int DELAY_IN_SECS = 3 * 1000;
+  private static final int DELAY_IN_SECS = 0 * 1000;
 
   @Rule
   public ActivityTestRule<QuestionActivity> questionTestRule =
@@ -54,11 +57,11 @@ public class QuizSteps {
   @Given("^iniciar pantalla Question$")
   public void iniciarPantallaQuestion() {
 
-//    try {
-//      UiDevice device = UiDevice.getInstance(getInstrumentation());
-//      device.setOrientationNatural();
-//    } catch (RemoteException e) {
-//    }
+    try {
+      UiDevice device = UiDevice.getInstance(getInstrumentation());
+      device.setOrientationNatural();
+    } catch (RemoteException e) {
+    }
 
     try {
       Thread.sleep(DELAY_IN_SECS);
@@ -246,34 +249,28 @@ public class QuizSteps {
 
     int orientation = activity.getRequestedOrientation();
 
-    if(orientation == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
-      orientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+//    if(orientation == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
+//      orientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+//
+//    } else {
+//      orientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
+//    }
+//
+//    activity.setRequestedOrientation(orientation);
 
-    } else {
-      orientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
+    try {
+
+      UiDevice device = UiDevice.getInstance(getInstrumentation());
+
+      if(orientation == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
+        device.setOrientationNatural();
+
+      } else {
+        device.setOrientationLeft();
+      }
+
+    } catch (RemoteException e) {
     }
-
-    activity.setRequestedOrientation(orientation);
-
-//    try {
-//      UiDevice device = UiDevice.getInstance(getInstrumentation());
-//
-//      if(orientation == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
-//        device.setOrientationNatural();
-//
-//      } else {
-//        device.setOrientationLeft();
-//      }
-//
-//    } catch (RemoteException e) {
-//    }
-
-
-//    try {
-//      UiDevice device = UiDevice.getInstance(getInstrumentation());
-//      device.setOrientationLeft();
-//    } catch (RemoteException e) {
-//    }
 
     try {
       Thread.sleep(DELAY_IN_SECS);
