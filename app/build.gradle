@@ -1,18 +1,18 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 28
     buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "es.ulpgc.eite.da.basicquizlab"
         minSdkVersion 24
-        targetSdkVersion 29
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
 
         testApplicationId "es.ulpgc.eite.da.basicquizlab.test"
-        //testInstrumentationRunner "es.ulpgc.eite.da.basicquizlab.test.Instrumentation"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "es.ulpgc.eite.da.basicquizlab.test.Instrumentation"
+        //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     sourceSets {

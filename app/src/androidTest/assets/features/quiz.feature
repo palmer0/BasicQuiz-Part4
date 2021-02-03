@@ -51,6 +51,7 @@ Feature: Quiz
 #    When pulsar boton Cheat
 #    Then iniciar pantalla Cheat
 #    And mostrar mensaje Warning
+#    And ocultar respuesta
 #    And mostrar botones Yes y No activados
 #    And pulsar boton Back
 #
@@ -69,9 +70,11 @@ Feature: Quiz
     And pulsar boton Cheat
     And iniciar pantalla Cheat
     And mostrar mensaje Warning
+    And ocultar respuesta
     And mostrar botones Yes y No activados
     When girar pantalla
     Then mostrar mensaje Warning
+    And ocultar respuesta
     And mostrar botones Yes y No activados
     And pulsar boton Back
 
@@ -90,6 +93,7 @@ Feature: Quiz
     And pulsar boton Cheat
     And iniciar pantalla Cheat
     And mostrar mensaje Warning
+    And ocultar respuesta
     And mostrar botones Yes y No activados
     When pulsar boton No
     Then finalizar pantalla Cheat
@@ -114,6 +118,7 @@ Feature: Quiz
 #    And pulsar boton Cheat
 #    And iniciar pantalla Cheat
 #    And mostrar mensaje Warning
+#    And ocultar respuesta
 #    And mostrar botones Yes y No activados
 #    And pulsar boton No
 #    And finalizar pantalla Cheat
@@ -143,6 +148,7 @@ Feature: Quiz
     And pulsar boton Cheat
     And iniciar pantalla Cheat
     And mostrar mensaje Warning
+    And ocultar respuesta
     And mostrar botones Yes y No activados
     When pulsar boton Yes
     Then mostrar respuesta "<answer>" a pregunta "<question>"
@@ -164,6 +170,7 @@ Feature: Quiz
 #    And pulsar boton Cheat
 #    And iniciar pantalla Cheat
 #    And mostrar mensaje Warning
+#    And ocultar respuesta
 #    And mostrar botones Yes y No activados
 #    And pulsar boton Yes
 #    And mostrar respuesta "<answer>" a pregunta "<question>"
@@ -188,6 +195,7 @@ Feature: Quiz
     And pulsar boton Cheat
     And iniciar pantalla Cheat
     And mostrar mensaje Warning
+    And ocultar respuesta
     And mostrar botones Yes y No activados
     And pulsar boton Yes
     And mostrar botones Yes y No desactivados
@@ -215,6 +223,7 @@ Feature: Quiz
 #    And pulsar boton Cheat
 #    And iniciar pantalla Cheat
 #    And mostrar mensaje Warning
+#    And ocultar respuesta
 #    And mostrar botones Yes y No activados
 #    And pulsar boton Yes
 #    And mostrar botones Yes y No desactivados
