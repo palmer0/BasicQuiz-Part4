@@ -36,10 +36,7 @@ public class QuestionActivity extends AppCompatActivity {
     Log.d(TAG, "onCreate()");
 
     initLayoutData();
-
     linkLayoutComponents();
-    //initLayoutContent();
-
     resetReplyContent();
 
     if(savedInstanceState != null) {
@@ -106,12 +103,6 @@ public class QuestionActivity extends AppCompatActivity {
     replyText = findViewById(R.id.replyText);
   }
 
-//  private void initLayoutContent() {
-//    falseButton.setText(R.string.false_button_text);
-//    trueButton.setText(R.string.true_button_text);
-//    nextButton.setText(R.string.next_button_text);
-//    cheatButton.setText(R.string.cheat_button_text);
-//  }
 
   private void resetReplyContent() {
     currentReply = getString(R.string.empty_text);
@@ -126,35 +117,6 @@ public class QuestionActivity extends AppCompatActivity {
     falseButton.setEnabled(!nextButtonEnabled);
     trueButton.setEnabled(!nextButtonEnabled);
   }
-
-//  public void onButtonClick(View view) {
-//
-//    switch (view.getId()) {
-//      case R.id.falseButton:
-//      case R.id.trueButton:
-//        buttonClicked(view.getId());
-//        break;
-//      case R.id.nextButton:
-//        onNextButtonClicked();
-//        break;
-//      case R.id.cheatButton:
-//        onCheatButtonClicked();
-//    }
-//  }
-
-//  private void buttonClicked(int id) {
-//
-//    switch (id) {
-//      case R.id.falseButton:
-//        onFalseButtonClicked();
-//        break;
-//      case R.id.trueButton:
-//        onTrueButtonClicked();
-//    }
-//
-//    nextButtonEnabled = true;
-//    updateLayoutContent();
-//  }
 
   private void onTrueButtonClicked() {
 
@@ -211,7 +173,7 @@ public class QuestionActivity extends AppCompatActivity {
   }
 
   private void onNextButtonClicked() {
-    Log.d(TAG, "nextButtonClicked()");
+    Log.d(TAG, "onNextButtonClicked()");
 
     nextButtonEnabled = false;
     questionIndex++;
