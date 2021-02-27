@@ -12,7 +12,6 @@ public class CheatActivity extends AppCompatActivity {
 
   public static final String TAG = "Quiz.CheatActivity";
 
-
   public final static String EXTRA_ANSWER = "EXTRA_ANSWER";
   public final static String EXTRA_CHEATED = "EXTRA_CHEATED";
 
@@ -26,7 +25,6 @@ public class CheatActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_cheat);
-
     getSupportActionBar().setTitle(R.string.cheat_title);
 
     initLayoutData();
@@ -39,7 +37,6 @@ public class CheatActivity extends AppCompatActivity {
   }
 
   private void enableLayoutButtons() {
-
     noButton.setOnClickListener(v -> onNoButtonClicked());
     yesButton.setOnClickListener(v -> onYesButtonClicked());
   }
@@ -51,7 +48,6 @@ public class CheatActivity extends AppCompatActivity {
     answerText = findViewById(R.id.answerText);
   }
 
-
   private void returnCheatedStatus() {
     Log.d(TAG, "returnCheatedStatus()");
     Log.d(TAG, "answerCheated: " + answerCheated);
@@ -61,7 +57,6 @@ public class CheatActivity extends AppCompatActivity {
     setResult(RESULT_OK, intent);
 
     finish();
-
   }
 
   @Override
@@ -89,7 +84,6 @@ public class CheatActivity extends AppCompatActivity {
     returnCheatedStatus();
   }
 
-
   private void onYesButtonClicked() {
     yesButton.setEnabled(false);
     noButton.setEnabled(false);
@@ -99,7 +93,6 @@ public class CheatActivity extends AppCompatActivity {
       answerText.setText(R.string.false_text);
     } else {
       answerText.setText(R.string.true_text);
-
     }
   }
 
@@ -109,6 +102,4 @@ public class CheatActivity extends AppCompatActivity {
 
     returnCheatedStatus();
   }
-
-
 }
