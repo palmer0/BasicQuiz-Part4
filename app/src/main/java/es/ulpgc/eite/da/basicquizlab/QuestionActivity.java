@@ -24,7 +24,8 @@ public class QuestionActivity extends AppCompatActivity {
   private int questionIndex=0;
   private int[] replyArray;
   private boolean nextButtonEnabled;
-  private String currentReply;
+  //private String currentReply;
+  private boolean trueButtonSelected;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +38,12 @@ public class QuestionActivity extends AppCompatActivity {
 
     initLayoutData();
     linkLayoutComponents();
-    resetReplyContent();
+    //resetReplyContent();
 
     if(savedInstanceState != null) {
       questionIndex=savedInstanceState.getInt(KEY_INDEX);
-      currentReply =savedInstanceState.getString(KEY_REPLY);
+      //currentReply = savedInstanceState.getString(KEY_REPLY);
+      trueButtonSelected=savedInstanceState.getBoolean(KEY_REPLY);
       nextButtonEnabled=savedInstanceState.getBoolean(KEY_ENABLED);
 
     }
@@ -75,7 +77,8 @@ public class QuestionActivity extends AppCompatActivity {
     Log.d(TAG, "onSaveInstanceState()");
 
     outState.putInt(KEY_INDEX, questionIndex);
-    outState.putString(KEY_REPLY, currentReply);
+    //outState.putString(KEY_REPLY, currentReply);
+    outState.putBoolean(KEY_REPLY, trueButtonSelected);
     outState.putBoolean(KEY_ENABLED, nextButtonEnabled);
   }
 
@@ -103,14 +106,36 @@ public class QuestionActivity extends AppCompatActivity {
     replyText = findViewById(R.id.replyText);
   }
 
-
+  /*
   private void resetReplyContent() {
     currentReply = getString(R.string.empty_text);
   }
+  */
 
   private void updateLayoutContent() {
     questionText.setText(questionArray[questionIndex]);
-    replyText.setText(currentReply);
+    //replyText.setText(currentReply);
+
+
+    if(trueButtonSelected) {
+      if(replyArray[questionIndex] == 1) {
+        replyText.setText(R.string.correct_text);
+      } else {
+        replyText.setText(R.string.incorrect_text);
+      }
+
+    } else { // has pulasado false o ninguno
+
+      if(!nextButtonEnabled) {
+        replyText.setText(R.string.empty_text);
+      } else {
+        if(replyArray[questionIndex] == 0) {
+          replyText.setText(R.string.correct_text);
+        } else {
+          replyText.setText(R.string.incorrect_text);
+        }
+      }
+    }
 
     nextButton.setEnabled(nextButtonEnabled);
     cheatButton.setEnabled(!nextButtonEnabled);
@@ -121,24 +146,30 @@ public class QuestionActivity extends AppCompatActivity {
   private void onTrueButtonClicked() {
 
     if(replyArray[questionIndex] == 1) {
-      currentReply=getString(R.string.correct_text);
+      //currentReply=getString(R.string.correct_text);
+      replyText.setText(R.string.correct_text);
     } else {
-      currentReply=getString(R.string.incorrect_text);
+      //currentReply=getString(R.string.incorrect_text);
+      replyText.setText(R.string.incorrect_text);
     }
 
     nextButtonEnabled = true;
+    trueButtonSelected = true;
     updateLayoutContent();
   }
 
   private void onFalseButtonClicked() {
 
     if(replyArray[questionIndex] == 0) {
-      currentReply=getString(R.string.correct_text);
+      //currentReply=getString(R.string.correct_text);
+      replyText.setText(R.string.correct_text);
     } else {
-      currentReply=getString(R.string.incorrect_text);
+      //currentReply=getString(R.string.incorrect_text);
+      replyText.setText(R.string.incorrect_text);
     }
 
     nextButtonEnabled = true;
+    trueButtonSelected = false;
     updateLayoutContent();
   }
 
@@ -183,7 +214,8 @@ public class QuestionActivity extends AppCompatActivity {
     checkIndexData();
 
     if(questionIndex < questionArray.length) {
-      resetReplyContent();
+      //resetReplyContent();
+      trueButtonSelected=false;
       updateLayoutContent();
     }
 
