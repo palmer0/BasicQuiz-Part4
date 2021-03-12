@@ -27,6 +27,7 @@ public class QuestionActivity extends AppCompatActivity {
   //private String currentReply;
   private boolean trueButtonSelected;
 
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
