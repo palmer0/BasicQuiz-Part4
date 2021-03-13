@@ -44,12 +44,30 @@ public class QuizSteps {
 
   @Before("@quiz-feature")
   public void setUp() {
+
+    try {
+
+      UiDevice device = UiDevice.getInstance(getInstrumentation());
+      device.setOrientationNatural();
+
+    } catch (RemoteException e) {
+    }
+
     testRule.launchActivity(new Intent());
     activity = testRule.getActivity();
   }
 
   @After("@quiz-feature")
   public void tearDown() {
+
+    try {
+
+      UiDevice device = UiDevice.getInstance(getInstrumentation());
+      device.setOrientationNatural();
+
+    } catch (RemoteException e) {
+    }
+
     testRule.finishActivity();
   }
 
@@ -57,11 +75,13 @@ public class QuizSteps {
   @Given("^iniciar pantalla Question$")
   public void iniciarPantallaQuestion() {
 
+    /*
     try {
       UiDevice device = UiDevice.getInstance(getInstrumentation());
       device.setOrientationNatural();
     } catch (RemoteException e) {
     }
+    */
 
     try {
       Thread.sleep(DELAY_IN_SECS);
@@ -285,7 +305,6 @@ public class QuizSteps {
       Thread.sleep(DELAY_IN_SECS);
     } catch (InterruptedException e) {
     }
-
-
   }
+
 }
